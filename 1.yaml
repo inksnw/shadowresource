@@ -1,0 +1,27 @@
+apiVersion: apis.abc.com/v1
+kind: ShadowResource
+metadata:
+  name: task1
+  namespace: default
+spec:
+  flowList:
+    - apiVersion: v1
+      kind: Pod
+      metadata:
+        name: nginx1
+        namespace: default
+      spec:
+        containers:
+          - image: nginx
+            name: nginx
+    - apiVersion: v1
+      kind: Pod
+      metadata:
+        name: nginx2
+        namespace: default
+        annotations:
+          foo1: bar2
+      spec:
+        containers:
+          - image: nginx
+            name: nginx
